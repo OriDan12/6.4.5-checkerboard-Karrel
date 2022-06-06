@@ -1,0 +1,40 @@
+function start() {
+    paint(Color.black);
+    for (var i = 0; i< 31; i ++){
+        while (colorIs(Color.black)){
+            move();
+            paint(Color.red);
+        }
+         while(colorIs(Color.red)){
+             if(frontIsClear()){
+                 move();
+                paint(Color.black);
+              } else {
+                if(facingEast()){
+                     turnLeft();
+                    move();
+                    turnLeft();
+                    paint(Color.black);
+                 }  else {
+                       turnRight();
+                      move();
+                     turnRight();
+                      paint(Color.black);
+                 }
+            }
+       
+         }    
+    }
+    move();
+    paint(Color.red);
+    goHome();
+    turnLeft();
+}
+
+function goHome(){
+    turnLeft();
+    for(var t=0; t<7;t++){
+        move();
+    }
+}
+//you welcome!
